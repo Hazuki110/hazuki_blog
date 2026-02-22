@@ -1,69 +1,168 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>エンジニアへの一歩</title>
-    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PORTFOLIO</title>
 
-  <body>
-    <header id="header" class="wrapper">
-    <div class="img">
-      <h1 class="kiroku">学修記録1日目</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="home">HOME</a></li>
-          <li><a href="次の日">次の日</a></li>
-        </ul>
-      </nav>
-     </header>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+
+  <style>
     
-    <main>
-      <div id="mainvisual">
-        <img src="https://raw.githubusercontent.com/Hazuki110/Hazuki-BLOG/main/IMG_5548.jpeg" alt="miu">
-      </div>
-        
-        <section id="profile" class="wrapper">
-          <h2 class="section-title">Profile</h2>
-          <div class="content">
-            <img src="https://raw.githubusercontent.com/Hazuki110/Hazuki-BLOG/main/IMG_5549.jpeg" alt="vampire">
-            <div class="text">
-              <h3 class="content-title">HAZUKI TAKAYA</h3>
-              <p>
-                初めまして葉月です。このサイトはweb制作を学んでプログラマー、いやエンジニアになるために、作りました。日々成長していく過程を記録していきたい思います！！頑張るぞ！！！
-              </p>
-            </div>
-          </div>
-        </section>
-        
-        <section id="now" class="wrapper">
-          <h2 class="section-title">現状と未来</h2>
-            <ul class="cards">
-              <li><img src="https://raw.githubusercontent.com/Hazuki110/Hazuki-BLOG/main/IMG_1277.jpeg" alt="code">
-              <h2 class="content-title">コード書くのは楽しい</h2>
-                <p>わからないけど書くのは楽しい、一つのページにこんなにたくさん書いてたんだなあと圧巻！画像はちょっと前にやってたマックのドラクエコラボのスライム</p>
-              </li>
-              <li><img src="https://raw.githubusercontent.com/Hazuki110/Hazuki-BLOG/main/IMG_1301.jpeg" alt="mirai">
-              <h2 class="content-title">フロントエンドエンジニア</h2>
-                <p>いずれはフロントエンドエンジニアになりたい、けどサーバーサイドエンジニアや、モバイルアプリエンジニアも興味ある</p>
-              </li>
-              <li><img src="https://raw.githubusercontent.com/Hazuki110/Hazuki-BLOG/main/IMG_5547.jpeg" alt="neko">
-              <h3 class="content-title">みう</h3>
-             <p>この猫は家で飼っているみうちゃん、布団の中に入ってきて寝てる、かわいい</p>
-             </li>
-            </ul>
-          </section>
-        </main>
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at bottom, #001f3f 0%, #000010 100%);
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Alfa Slab One', cursive;
+      position: relative;
+      color: white;
+    }
+
+    .portfolio {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 1vw;
+      z-index: 10;
+    }
     
-  <footer id="footer">
-    <p>&copy; 2026 2月22日 Profile</p>
-    </footer>
-  </body>
+    a.letter-box {
+     color: white;
+     text-decoration: none; 
+    }
+    
+    .letter-box {
+      padding: 10px;
+      font-size: 6vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 5vw;
+      min-height: 5vw;
+    }
+
+    /* 三日月 */
+    .moon {
+      position: absolute;
+      top: 5%;
+      left: 10%;
+      width: 100px;
+      height: 100px;
+      background: #ffeb99;
+      border-radius: 50%;
+      box-shadow: 0 0 30px #ffe;
+      z-index: 1;
+    }
+
+    .moon::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 80px;
+      height: 80px;
+      background: #001f3f;
+      border-radius: 50%;
+    }
+
+    /* 流れ星 */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      opacity: 0;
+      animation: shootingStar 5s linear infinite;
+    }
+
+    @keyframes shootingStar {
+      0% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(500px, 500px);
+        opacity: 0;
+      }
+    }
+
+    /* 自己紹介リンク */
+    .about-link {
+      position: absolute;
+      bottom: 88px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.3rem;
+      color: #ffffff;
+      text-decoration: none;
+      z-index: 10;
+      transition: color 0.3s ease;
+    }
+
+    .about-link:hover {
+      color: #ffeb99;
+    }
+    
+    .blog  {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.3rem;
+      z-index: 10;
+      transition: color 0.3s ease;
+    }
+    
+    .form  {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.3rem;
+      z-index: 10;
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- 三日月 -->
+  <div class="moon"></div>
+
+  <!-- PORTFOLIO文字 -->
+  <div class="portfolio">
+    <div class="letter-box">P</div>
+    <div class="letter-box">O</div>
+    <a href="https://codepen.io/ijyzzrrz-the-typescripter/pen/zxxjvxE" div class="letter-box">R</a>
+    <div class="letter-box">T</div>
+    <div class="letter-box">F</div>
+    <div class="letter-box">O</div>
+    <div class="letter-box">L</div>
+    <div class="letter-box">I</div>
+    <div class="letter-box">O</div>
+  </div>
+
+  <!-- 流れ星たち -->
+  <div class="star" style="top: 20px; left: 100px; animation-delay: 1s;"></div>
+  <div class="star" style="top: 80px; left: 300px; animation-delay: 3s;"></div>
+  <div class="star" style="top: 150px; left: 50px; animation-delay: 5s;"></div>
+  <div class="star" style="top: 200px; left: 400px; animation-delay: 7s;"></div>
+  <div class="star" style="top: 100px; left: 500px; animation-delay: 2s;"></div>
+
+  <!-- 自己紹介リンク -->
+  <a href="https://codepen.io/ijyzzrrz-the-typescripter/pen/wBBjvNo" class="about-link">自己紹介</a>
+  <a href="blog/2026-02-22-day1.html" class="blog">BLOG</a>
+  <a href="url" class="form">お問い合わせ
+  </a>
+</body>
 </html>
